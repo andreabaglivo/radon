@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as THREE from 'three';
-import './style.css';
+// import './style.css';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // import * as dat from 'lil-gui'
 // import srcMap from '../../img/wokrshop-360.jpg'
