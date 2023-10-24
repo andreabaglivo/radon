@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
-// import './style.css';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-// import * as dat from 'lil-gui'
 
 @Component({
   selector: 'ae-tour-virtuale',
@@ -10,99 +8,107 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   styleUrls: ['./tour-virtuale.component.scss'],
 })
 export class TourVirtualeComponent implements OnInit {
+  private textureLoader = new THREE.TextureLoader();
+  private scene = new THREE.Scene();
+  private map: any;
+  private material: any;
+  private mesh: any;
+  private geometry: any = new THREE.SphereGeometry(30, 90, 90);
+  private sizes: any;
+  private camera: any;
+  private renderer: any;
+  private controls: any;
+
   ngOnInit(): void {
-    const textureLoader = new THREE.TextureLoader();
-    const scene = new THREE.Scene();
     const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
-    const map = textureLoader.load(srcMap);
-    map.repeat.x = -1;
-    map.wrapS = THREE.RepeatWrapping;
+    this.setMap(srcMap);
+    this.setMesh();
 
-    const material = new THREE.MeshBasicMaterial({
-      map: map,
-      side: THREE.BackSide,
-    });
+    this.scene.add(this.mesh);
 
-    const geometry = new THREE.SphereGeometry(30, 90, 90);
+    this.setSizes();
+    this.setCamera();
+    this.setRender();
+    this.serOrbitControls();
+    this.tic();
 
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    requestAnimationFrame(() => this.tic());
 
-    /**
-     * render sizes
-     */
-    const sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
+    window.addEventListener('resize', this.handleResize);
 
-    /**
-     * Camera
-     */
+    this.handleResize();
+  }
+
+  handleResize(): void {
+    this.sizes.width = window.innerWidth;
+    this.sizes.height = window.innerHeight;
+
+    this.camera.aspect = this.sizes.width / this.sizes.height;
+    this.camera.updateProjectionMatrix();
+
+    this.renderer.setSize(this.sizes.width, this.sizes.height);
+
+    const pixelRatio = Math.min(window.devicePixelRatio, 2);
+    this.renderer.setPixelRatio(pixelRatio);
+  }
+
+  setCamera(): void {
     const fov = 60;
-    const camera = new THREE.PerspectiveCamera(
+
+    this.camera = new THREE.PerspectiveCamera(
       fov,
-      sizes.width / sizes.height,
+      this.sizes.width / this.sizes.height,
       0.1
     );
-    camera.position.set(0, 0, 1);
-    camera.lookAt(new THREE.Vector3(0, 2.5, 0));
+    this.camera.position.set(0, 0, 1);
+    this.camera.lookAt(new THREE.Vector3(0, 2.5, 0));
+  }
 
-    /**
-     * renderer
-     */
-    const renderer = new THREE.WebGLRenderer({
+  setMap(srcMap: string): void {
+    this.map = this.textureLoader.load(srcMap);
+    this.map.repeat.x = -1;
+    this.map.wrapS = THREE.RepeatWrapping;
+
+    this.setMaterial();
+  }
+
+  setMaterial(): void {
+    this.material = new THREE.MeshBasicMaterial({
+      map: this.map,
+      side: THREE.BackSide,
+    });
+  }
+
+  setMesh(): void {
+    this.mesh = new THREE.Mesh(this.geometry, this.material);
+  }
+
+  serOrbitControls(): void {
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+  }
+
+  setRender(): void {
+    this.renderer = new THREE.WebGLRenderer({
       antialias: window.devicePixelRatio < 2,
       logarithmicDepthBuffer: true,
     });
-    document.body.appendChild(renderer.domElement);
-    handleResize();
 
-    /**
-     * OrbitControls
-     */
-    const controls = new OrbitControls(camera, renderer.domElement);
+    document.body.appendChild(this.renderer.domElement);
 
-    /**
-     * Three js Clock
-     */
-    // const clock = new THREE.Clock()
+    this.handleResize();
+  }
 
-    /**
-     * frame loop
-     */
-    function tic() {
-      /**
-       * tempo trascorso dal frame precedente
-       */
-      // const deltaTime = clock.getDelta()
-      /**
-       * tempo totale trascorso dall'inizio
-       */
-      // const time = clock.getElapsedTime()
+  setSizes(): void {
+    this.sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
 
-      controls.update();
+  tic(): void {
+    this.controls.update();
+    this.renderer.render(this.scene, this.camera);
 
-      renderer.render(scene, camera);
-
-      requestAnimationFrame(tic);
-    }
-
-    requestAnimationFrame(tic);
-
-    window.addEventListener('resize', handleResize);
-
-    function handleResize() {
-      sizes.width = window.innerWidth;
-      sizes.height = window.innerHeight;
-
-      camera.aspect = sizes.width / sizes.height;
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(sizes.width, sizes.height);
-
-      const pixelRatio = Math.min(window.devicePixelRatio, 2);
-      renderer.setPixelRatio(pixelRatio);
-    }
+    requestAnimationFrame(() => this.tic());
   }
 }
