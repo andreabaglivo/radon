@@ -21,11 +21,8 @@ export class TourVirtualeComponent implements OnInit {
 
   ngOnInit(): void {
     const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
-    this.setMap(srcMap);
-    this.setMesh();
-
-    this.scene.add(this.mesh);
-
+  
+	this.setScene(srcMap); 
     this.setSizes();
     this.setCamera();
     this.setRender();
@@ -96,6 +93,13 @@ export class TourVirtualeComponent implements OnInit {
     document.body.appendChild(this.renderer.domElement);
 
     this.handleResize();
+  }
+
+  setScene(srcMap: string): void {
+	this.setMap(srcMap);
+    this.setMesh();
+
+    this.scene.add(this.mesh);
   }
 
   setSizes(): void {
