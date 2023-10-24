@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import * as THREE from 'three';
 // import './style.css';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import * as dat from 'lil-gui'
 
-import srcMap from '../../img/wokrshop-360.jpg';
+
 
 @Component({
   selector: 'ae-tour-virtuale',
@@ -31,6 +31,7 @@ const scene = new THREE.Scene()
  * Manhattan
  */
 
+const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
 const map = textureLoader.load(srcMap);
 map.repeat.x = -1
 map.wrapS = THREE.RepeatWrapping
