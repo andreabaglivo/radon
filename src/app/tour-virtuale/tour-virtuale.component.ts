@@ -1,125 +1,108 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
 // import './style.css';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import * as dat from 'lil-gui'
 
-
-
 @Component({
   selector: 'ae-tour-virtuale',
   templateUrl: './tour-virtuale.component.html',
-  styleUrls: ['./tour-virtuale.component.scss']
+  styleUrls: ['./tour-virtuale.component.scss'],
 })
-export class TourVirtualeComponent {
+export class TourVirtualeComponent implements OnInit {
+  ngOnInit(): void {
+    const textureLoader = new THREE.TextureLoader();
+    const scene = new THREE.Scene();
+    const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
+    const map = textureLoader.load(srcMap);
+    map.repeat.x = -1;
+    map.wrapS = THREE.RepeatWrapping;
 
-}
+    const material = new THREE.MeshBasicMaterial({
+      map: map,
+      side: THREE.BackSide,
+    });
 
-const textureLoader = new THREE.TextureLoader()
+    const geometry = new THREE.SphereGeometry(30, 90, 90);
 
-/**
- * Debug
- */
-// const gui = new dat.GUI()
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
 
-/**
- * Scene
- */
-const scene = new THREE.Scene()
+    /**
+     * render sizes
+     */
+    const sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
 
-/**
- * Manhattan
- */
+    /**
+     * Camera
+     */
+    const fov = 60;
+    const camera = new THREE.PerspectiveCamera(
+      fov,
+      sizes.width / sizes.height,
+      0.1
+    );
+    camera.position.set(0, 0, 1);
+    camera.lookAt(new THREE.Vector3(0, 2.5, 0));
 
-const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
-const map = textureLoader.load(srcMap);
-map.repeat.x = -1
-map.wrapS = THREE.RepeatWrapping
+    /**
+     * renderer
+     */
+    const renderer = new THREE.WebGLRenderer({
+      antialias: window.devicePixelRatio < 2,
+      logarithmicDepthBuffer: true,
+    });
+    document.body.appendChild(renderer.domElement);
+    handleResize();
 
-const material = new THREE.MeshBasicMaterial({
-	map: map,
-	side: THREE.BackSide,
-})
-const geometry = new THREE.SphereGeometry(30, 90, 90)
+    /**
+     * OrbitControls
+     */
+    const controls = new OrbitControls(camera, renderer.domElement);
 
-const mesh = new THREE.Mesh(geometry, material)
-scene.add(mesh)
+    /**
+     * Three js Clock
+     */
+    // const clock = new THREE.Clock()
 
-/**
- * render sizes
- */
-const sizes = {
-	width: window.innerWidth,
-	height: window.innerHeight,
-}
-/**
- * Camera
- */
-const fov = 60
-const camera = new THREE.PerspectiveCamera(fov, sizes.width / sizes.height, 0.1)
-camera.position.set(0, 0, 1)
-camera.lookAt(new THREE.Vector3(0, 2.5, 0))
+    /**
+     * frame loop
+     */
+    function tic() {
+      /**
+       * tempo trascorso dal frame precedente
+       */
+      // const deltaTime = clock.getDelta()
+      /**
+       * tempo totale trascorso dall'inizio
+       */
+      // const time = clock.getElapsedTime()
 
-/**
- * Show the axes of coordinates system
- */
-const axesHelper = new THREE.AxesHelper(3)
-// scene.add(axesHelper)
+      controls.update();
 
-/**
- * renderer
- */
-const renderer = new THREE.WebGLRenderer({
-	antialias: window.devicePixelRatio < 2,
-	logarithmicDepthBuffer: true,
-})
-document.body.appendChild(renderer.domElement)
-handleResize()
+      renderer.render(scene, camera);
 
-/**
- * OrbitControls
- */
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
+      requestAnimationFrame(tic);
+    }
 
-/**
- * Three js Clock
- */
-// const clock = new THREE.Clock()
+    requestAnimationFrame(tic);
 
-/**
- * frame loop
- */
-function tic() {
-	/**
-	 * tempo trascorso dal frame precedente
-	 */
-	// const deltaTime = clock.getDelta()
-	/**
-	 * tempo totale trascorso dall'inizio
-	 */
-	// const time = clock.getElapsedTime()
+    window.addEventListener('resize', handleResize);
 
-	controls.update()
+    function handleResize() {
+      sizes.width = window.innerWidth;
+      sizes.height = window.innerHeight;
 
-	renderer.render(scene, camera)
+      camera.aspect = sizes.width / sizes.height;
+      camera.updateProjectionMatrix();
 
-	requestAnimationFrame(tic)
-}
+      renderer.setSize(sizes.width, sizes.height);
 
-requestAnimationFrame(tic)
-
-window.addEventListener('resize', handleResize)
-
-function handleResize() {
-	sizes.width = window.innerWidth
-	sizes.height = window.innerHeight
-
-	camera.aspect = sizes.width / sizes.height
-	camera.updateProjectionMatrix()
-
-	renderer.setSize(sizes.width, sizes.height)
-
-	const pixelRatio = Math.min(window.devicePixelRatio, 2)
-	renderer.setPixelRatio(pixelRatio)
+      const pixelRatio = Math.min(window.devicePixelRatio, 2);
+      renderer.setPixelRatio(pixelRatio);
+    }
+  }
 }
