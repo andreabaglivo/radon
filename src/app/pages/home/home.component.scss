@@ -1,0 +1,10 @@
+.home{
+    &__container {
+        background: white;
+        display: flex;
+        height: 95vh;
+        border-radius: 1rem;
+        padding: 1rem;
+        border: 1px solid gray;
+    }
+}

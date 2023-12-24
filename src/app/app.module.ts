@@ -6,6 +6,10 @@ import { TourVirtualeComponent } from './tour-virtuale/tour-virtuale.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './shared/card/card.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { CardComponent } from './shared/card/card.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
+    MatSlideToggleModule,
+    MatButtonModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

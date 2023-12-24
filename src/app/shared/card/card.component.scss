@@ -1,7 +1,14 @@
 .card {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 5rem;
     height: 5rem;
-    background-color: crimson;
+    background: linear-gradient(45deg, white, green);
     color: wheat;
+}
+
+.round {
+    border-radius: 100%;
+    box-shadow: 1px 1px 1px black;
 }
