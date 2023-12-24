@@ -8,11 +8,4 @@ import { ICard } from '../../interfaces/card.interface';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-  public title: string = HOME_TITLE;
-  public homeCard: ICard = {
-    title: 'ae',
-    type: 'round',
-  }
-
 }

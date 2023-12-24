@@ -10,6 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { MapComponent } from './shared/map/map.component';
 import {MatInputModule} from '@angular/material/input';
+import { SearchMenuComponent } from './shared/search-menu/search-menu.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {MatInputModule} from '@angular/material/input';
     TourVirtualeComponent,
     HomeComponent,
     CardComponent,
-    MapComponent
+    MapComponent,
+    SearchMenuComponent
   ],
   imports: [
     BrowserModule,
