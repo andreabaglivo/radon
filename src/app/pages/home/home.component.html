@@ -1,5 +1,9 @@
 <div class="home__container m-1">
-    <div class="bold pl-1">
-        {{ title }}
+    <div class="home__title bold pl-1">
+        <!-- {{ title }} -->
+        <ae-card [cardConfig]=homeCard></ae-card>
+    </div>
+    <div class="home__map mt-2">
+        <ae-map></ae-map> 
     </div>
 </div>

@@ -4,11 +4,25 @@
     justify-content: center;
     width: 5rem;
     height: 5rem;
-    background: linear-gradient(45deg, white, green);
-    color: wheat;
+    background: linear-gradient(45deg, white, rgb(84, 246, 84));
+    color: white;
 }
 
 .round {
     border-radius: 100%;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 5px green;
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: transform 0.5s;
+
+    &:active {
+        transform: rotate(0deg);
+        transition:  0s;
+    }
+}
+
+.goUp {
+    transform: translate(100px, 100%);
+
+    
 }

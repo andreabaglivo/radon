@@ -1,10 +1,22 @@
 .home{
     &__container {
         background: white;
-        display: flex;
-        height: 95vh;
+        min-height: 95vh;
         border-radius: 1rem;
         padding: 1rem;
-        border: 1px solid gray;
+        border: 1px solid lavender;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+       
+    }
+
+    &__map {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
 }

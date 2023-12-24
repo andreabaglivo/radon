@@ -8,22 +8,24 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './shared/card/card.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import { MapComponent } from './shared/map/map.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     TourVirtualeComponent,
     HomeComponent,
-    CardComponent
+    CardComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatButtonModule,    
+    MatButtonModule,  
+    MatInputModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]
