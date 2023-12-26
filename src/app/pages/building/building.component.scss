@@ -1,7 +1,7 @@
-.home{
+.building{
     &__container {
         background: white;
-        // min-height: 95vh;
+        min-height: 95vh;
         border-radius: 1rem;
         padding: 1rem;
         border: 1px solid lavender;
@@ -13,10 +13,9 @@
         align-items: flex-start;
        
     }
+    &-virtual-tour {
 
-    &__map {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        border-radius: 1rem;
+    
     }
 }

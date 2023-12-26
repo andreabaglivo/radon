@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -7,7 +7,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
   templateUrl: './tour-virtuale.component.html',
   styleUrls: ['./tour-virtuale.component.scss'],
 })
-export class TourVirtualeComponent implements OnInit {
+export class TourVirtualeComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('rendererContainer', { static: false }) rendererContainer!: ElementRef;
+
+  
   private textureLoader = new THREE.TextureLoader();
   private scene = new THREE.Scene();
   private map: any;
@@ -19,7 +23,18 @@ export class TourVirtualeComponent implements OnInit {
   private renderer: any;
   private controls: any;
 
+  private container: any;
+
+
   ngOnInit(): void {
+    
+  }
+
+  ngAfterViewInit(): void {
+
+    this.container = this.rendererContainer.nativeElement;
+
+
     const srcMap: string = '../../assets/img/poly_haven_studio.jpeg';
   
 	this.setScene(srcMap); 
@@ -34,11 +49,15 @@ export class TourVirtualeComponent implements OnInit {
     window.addEventListener('resize', this.handleResize);
 
     this.handleResize();
+    
   }
 
   handleResize(): void {
-    this.sizes.width = window.innerWidth;
-    this.sizes.height = window.innerHeight;
+    // this.sizes.width = window.innerWidth;
+    // this.sizes.height = window.innerHeight;
+
+    this.sizes.width = 800;
+    this.sizes.height = 500;
 
     this.camera.aspect = this.sizes.width / this.sizes.height;
     this.camera.updateProjectionMatrix();
@@ -90,7 +109,7 @@ export class TourVirtualeComponent implements OnInit {
       logarithmicDepthBuffer: true,
     });
 
-    document.body.appendChild(this.renderer.domElement);
+    this.container.appendChild(this.renderer.domElement);
 
     this.handleResize();
   }

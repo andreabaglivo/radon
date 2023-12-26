@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MapComponent } from './shared/map/map.component';
 import {MatInputModule} from '@angular/material/input';
 import { SearchMenuComponent } from './shared/search-menu/search-menu.component';
+import { BuildingComponent } from './pages/building/building.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchMenuComponent } from './shared/search-menu/search-menu.component'
     HomeComponent,
     CardComponent,
     MapComponent,
-    SearchMenuComponent
+    SearchMenuComponent,
+    BuildingComponent
   ],
   imports: [
     BrowserModule,
