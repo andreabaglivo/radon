@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-building',
+  selector: 'ae-building',
   templateUrl: './building.component.html',
   styleUrls: ['./building.component.scss']
 })

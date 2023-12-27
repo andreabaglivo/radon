@@ -18,7 +18,7 @@ export class TourVirtualeComponent implements OnInit, AfterViewInit {
   private material: any;
   private mesh: any;
   private geometry: any = new THREE.SphereGeometry(30, 90, 90);
-  private sizes: any;
+  private sizes: any = {};
   private camera: any;
   private renderer: any;
   private controls: any;
@@ -53,8 +53,8 @@ export class TourVirtualeComponent implements OnInit, AfterViewInit {
   }
 
   handleResize(): void {
-    // this.sizes.width = window.innerWidth;
-    // this.sizes.height = window.innerHeight;
+    this.sizes.width = window.innerWidth;
+    this.sizes.height = window.innerHeight;
 
     this.sizes.width = 800;
     this.sizes.height = 500;
@@ -74,7 +74,7 @@ export class TourVirtualeComponent implements OnInit, AfterViewInit {
     this.camera = new THREE.PerspectiveCamera(
       fov,
       this.sizes.width / this.sizes.height,
-      0.1
+      0.1,
     );
     this.camera.position.set(0, 0, 1);
     this.camera.lookAt(new THREE.Vector3(0, 2.5, 0));

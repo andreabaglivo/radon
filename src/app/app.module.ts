@@ -12,6 +12,7 @@ import { MapComponent } from './shared/map/map.component';
 import {MatInputModule} from '@angular/material/input';
 import { SearchMenuComponent } from './shared/search-menu/search-menu.component';
 import { BuildingComponent } from './pages/building/building.component';
+import { RoomComponent } from './pages/room/room.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BuildingComponent } from './pages/building/building.component';
     CardComponent,
     MapComponent,
     SearchMenuComponent,
-    BuildingComponent
+    BuildingComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

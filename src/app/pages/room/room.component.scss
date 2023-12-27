@@ -1,0 +1,16 @@
+.room {
+    &__container {
+        background: white;
+        min-height: 95vh;
+        border-radius: 1rem;
+        padding: 1rem;
+        border: 1px solid lavender;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+       
+    }
+}
