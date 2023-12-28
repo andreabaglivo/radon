@@ -2,10 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    background: linear-gradient(45deg, white, rgb(84, 246, 84));
-    color: white;
+    width: 10rem;
+    height: 10rem;
+    // background: linear-gradient(45deg, white, rgb(84, 246, 84));
+    color: black;
+    box-shadow: 5px 5px 5px silver;
+    cursor: pointer;
+   
+    span {
+        background-color: white ;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
 }
 
 .round {
@@ -21,8 +29,34 @@
     }
 }
 
-.goUp {
-    transform: translate(100px, 100%);
+.electric {
+    font-weight: 800;
+    background: linear-gradient(45deg, yellow, black, yellow, black, yellow);
+}
 
-    
+.hydraulic {
+    font-weight: 800;
+    background: linear-gradient(45deg, lightblue, rgb(24, 24, 115), lightblue,  rgb(24, 24, 115), lightblue);
+}
+
+.garden {
+    font-weight: 800;
+    background: linear-gradient(45deg, lime, green, lime, green, lime);
+}
+
+.heating {
+    font-weight: 800;
+    background: linear-gradient(45deg,red, rgb(110, 21, 21), red, rgb(110, 21, 21),red);
+}
+
+.structure {
+    font-weight: 800;
+    // background: linear-gradient(45deg, orange,  brown, orange,  brown, orange);
+     background: linear-gradient(45deg, rgb(239, 120, 35) ,rgb(123, 32, 32), rgb(239, 120, 35) ,rgb(123, 32, 32), chocolate );
+
+}
+
+.photovoltaic {
+    font-weight: 800;
+    background: linear-gradient(45deg, aqua, navy, aqua, navy ,aqua);
 }

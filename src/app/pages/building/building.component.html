@@ -1,7 +1,83 @@
 <div class="building__container">
-   <p>
-    Building
-   </p>
-        
-   <button mat-raised-button color="primary" routerLink="room">Go to Room</button>
+  <div class="row">
+    <div class="col-12">
+      <h3>{{ generalInfo.title }}</h3>
+    </div>
+  </div>
+
+  <div *ngFor="let sheetField of generalInfo.fields" class="row mt-3">
+    <div class="col-3">
+      <h5>{{ sheetField.key }}:</h5>
+    </div>
+    <div class="col-9">
+      <p>{{ sheetField.value }}</p>
+    </div>
+  </div>
+
+  <div class="col-12 d-flex justify-content-end">
+    <button mat-raised-button color="primary" routerLink="">Modifica</button>
+  </div>
 </div>
+
+<div class="building__container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h3>Impianti e sistemi</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex">
+      <ae-card [cardConfig]="electricCard" class="m-2"></ae-card> 
+      <ae-card [cardConfig]="hydraulicCard" class="m-2"></ae-card>
+      <ae-card [cardConfig]="gardenCard" class="m-2"></ae-card>
+      <ae-card [cardConfig]="heatingCard" class="m-2"></ae-card>
+      <ae-card [cardConfig]="structureCard" class="m-2"></ae-card>
+      <ae-card [cardConfig]="photovoltaicCard" class="m-2"></ae-card>
+
+
+      <!-- //allarme furto
+            //illuminazion
+
+            / -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <button mat-raised-button color="primary" routerLink="room">
+        Ispeziona
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="building__container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h3>Vani</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <button mat-raised-button color="primary" routerLink="room">
+        Go to Room
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="building__container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h3>Interventi attivi</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button mat-raised-button color="primary" routerLink="room">
+          Go to List
+        </button>
+      </div>
+    </div>
+  </div>
