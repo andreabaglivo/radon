@@ -19,5 +19,9 @@ export const GENERAL_SHEET_MOK: ISheet = {
       key: 'Classe energetica',
       value: 'G',
     },
+    {
+      key: 'Numero lotti',
+      value: '16',
+    },
   ],
 };

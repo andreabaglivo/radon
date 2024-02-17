@@ -9,11 +9,13 @@ import { ICard } from '../../interfaces/card.interface';
   styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent {
+  title = 'ae'; 
 
   generalInfo: ISheet = GENERAL_SHEET_MOK;
   electricCard: ICard= {
     title: 'Elettrico',
-    type: 'electric'
+    type: 'electric',
+    route: 'electric',
   };
   hydraulicCard: ICard = {
     title: 'Idraulico',

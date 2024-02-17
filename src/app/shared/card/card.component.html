@@ -1,4 +1,4 @@
-<div [ngClass]="cardConfig.type" class="card">
+<div [ngClass]="cardConfig.type" class="card" [routerLink]="cardConfig.route || ''">
     <span>
         {{ cardConfig.title }}
     </span>

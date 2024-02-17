@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import { SearchMenuComponent } from './shared/search-menu/search-menu.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { RoomComponent } from './pages/room/room.component';
+import { ElectricComponent } from './pages/electric/electric.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RoomComponent } from './pages/room/room.component';
     MapComponent,
     SearchMenuComponent,
     BuildingComponent,
-    RoomComponent
+    RoomComponent,
+    ElectricComponent
   ],
   imports: [
     BrowserModule,
