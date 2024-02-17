@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ISheet } from '../../interfaces/sheet.interface'
-import { GENERAL_SHEET_MOK } from '../../mok';
+import { ELECTRIC_CARD_MOK, EXPENSE_CARD_MOK, GARDEN_CARD_MOK, GENERAL_SHEET_MOK, HEATING_CARD_MOK, HYDRAULIC_CARD_MOK, INSURANCE_CARD_MOK, PHOTOVOLTAIC_CARD_MOK, STRUCTURE_CARD_MOK } from '../../mok';
 import { ICard } from '../../interfaces/card.interface';
 
 @Component({
@@ -12,36 +12,17 @@ export class BuildingComponent {
   title = 'ae'; 
 
   generalInfo: ISheet = GENERAL_SHEET_MOK;
-  electricCard: ICard= {
-    title: 'Elettrico',
-    type: 'electric',
-    route: 'electric',
-  };
-  hydraulicCard: ICard = {
-    title: 'Idraulico',
-    type: 'hydraulic'
-  };
 
-  structureCard: ICard = {
-    title: 'Strutture',
-    type: 'structure'
-  }
-
-  photovoltaicCard: ICard = {
-    title: 'Fotovoltaico',
-    type: 'photovoltaic'
-  }
+  electricCard: ICard = ELECTRIC_CARD_MOK;
+  hydraulicCard: ICard = HYDRAULIC_CARD_MOK; 
+  structureCard: ICard = STRUCTURE_CARD_MOK;
+  photovoltaicCard: ICard = PHOTOVOLTAIC_CARD_MOK; 
   // riscaldamentoCard;
   // allarmeCard;
   // gasCard; 
 
-  heatingCard: ICard= {
-    title: 'Riscaldamento',
-    type: 'heating'
-  };
-
-  gardenCard: ICard= {
-    title: 'Giardino',
-    type: 'garden'
-  };
+  heatingCard: ICard = HEATING_CARD_MOK;
+  gardenCard: ICard = GARDEN_CARD_MOK;
+  expenseCard: ICard = EXPENSE_CARD_MOK;
+  insuranceCard: ICard = INSURANCE_CARD_MOK;
 }

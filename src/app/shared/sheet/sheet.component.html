@@ -1,0 +1,16 @@
+<div class="sheet__container">
+    <div class="row">
+      <div class="col-12">
+        <h3>{{ sheet.title }}</h3>
+      </div>
+    </div>
+
+    <div *ngFor="let sheetField of sheet.fields" class="row mt-3">
+      <div class="col-3">
+        <h5>{{ sheetField.key }}:</h5>
+      </div>
+      <div class="col-9">
+        <p>{{ sheetField.value }}</p>
+      </div>
+    </div>
+</div>

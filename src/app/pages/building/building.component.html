@@ -1,32 +1,16 @@
-<div class="building p-3">
+<div class="building pt-3">
   <div>
-    <h1 class="d-flex justify-content-center"> {{title}} </h1>
-</div>
-
-  <div class="building__container">
-    <div class="row">
-      <div class="col-12">
-        <h3>{{ generalInfo.title }}</h3>
-      </div>
-    </div>
-
-    <div *ngFor="let sheetField of generalInfo.fields" class="row mt-3">
-      <div class="col-3">
-        <h5>{{ sheetField.key }}:</h5>
-      </div>
-      <div class="col-9">
-        <p>{{ sheetField.value }}</p>
-      </div>
-    </div>
+    <h1 class="d-flex justify-content-center">{{ title }}</h1>
   </div>
 
-  <div class="building__container mt-5">
+  <ea-sheet [sheet]="generalInfo"></ea-sheet>
+
+  <div class="building__container m-3 mt-5">
     <div class="row">
       <div class="col-12">
         <h3>Impianti e sistemi</h3>
       </div>
     </div>
-
     <div class="row">
       <div class="col-12 d-flex justify-content-between">
         <ae-card [cardConfig]="electricCard" class="m-2"></ae-card>
@@ -35,6 +19,26 @@
         <ae-card [cardConfig]="heatingCard" class="m-2"></ae-card>
         <ae-card [cardConfig]="structureCard" class="m-2"></ae-card>
         <ae-card [cardConfig]="photovoltaicCard" class="m-2"></ae-card>
+        <!-- //allarme furto
+            //illuminazion
+
+            / -->
+      </div>
+    </div>
+  </div>
+
+  <div class="building__container m-3 mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h3>Gestione finanziaria</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex">
+        <ae-card [cardConfig]="expenseCard" class="m-2"></ae-card>
+        <ae-card [cardConfig]="insuranceCard" class="m-2"></ae-card>
+
+       
         <!-- //allarme furto
             //illuminazion
 
@@ -77,21 +81,6 @@
     <div class="row">
       <div class="col-12">
         <h3>Scadenze</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 d-flex justify-content-end">
-        <button mat-raised-button color="primary" routerLink="room">
-          Go to List
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="building__container mt-5">
-    <div class="row">
-      <div class="col-12">
-        <h3>Spese</h3>
       </div>
     </div>
     <div class="row">
