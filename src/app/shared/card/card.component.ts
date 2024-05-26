@@ -3,7 +3,7 @@ import { ICard } from '../../interfaces/card.interface';
 import { EMPTY_CARD } from '../../constants';
 
 @Component({
-  selector: 'ae-card',
+  selector: 'r-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
