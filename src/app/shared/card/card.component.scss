@@ -25,9 +25,17 @@
     }
 }
 
-.square {
-   height: 50vh;
+.dark {
+    border: transparent;
+    background-color: black;
+    span {
+        color: white;
+        background-color: black ;
+        padding: 0.5rem;
+    }
 
+    height: 50vh;
+    font-size: 30px;
    border: transparent;
     cursor: pointer;
     transform: rotate(360deg);
@@ -38,12 +46,27 @@
         transition:  0s;
     }
 }
-.scura {
-    background-color: black;
+
+.light {
+    
+    border: transparent;
+    background-color: white;
     span {
-        color: white;
-        background-color: black ;
+        color: black;
+        background-color: white ;
         padding: 0.5rem;
+    }
+
+    height: 50vh;
+    font-size: 30px;
+   border: transparent;
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: transform 0.5s;
+
+    &:active {
+        transform: rotate(0deg);
+        transition:  0s;
     }
 }
 

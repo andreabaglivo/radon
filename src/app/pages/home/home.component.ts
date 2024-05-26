@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CARD_INFO_RADON, HOME_TITLE } from '../../constants';
 import { ICard } from '../../interfaces/card.interface';
+import { CARD_INFO_1, CARD_INFO_2, CARD_INFO_3, CARD_INFO_4 } from '../../../../src/app/constants';
 
 @Component({
   selector: 'ea-home',
@@ -8,5 +8,9 @@ import { ICard } from '../../interfaces/card.interface';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  public cardInfo: ICard = CARD_INFO_RADON;
+  public cardInfo1: ICard = CARD_INFO_1;
+  public cardInfo2: ICard = CARD_INFO_2;
+  public cardInfo3: ICard = CARD_INFO_3;
+  public cardInfo4: ICard = CARD_INFO_4;
+
 }
