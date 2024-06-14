@@ -1,10 +1,11 @@
 .home{
     &__container {
+        background-image: url("../../../assets/img/rocce.jpg");
         min-height: 100vh;
         background-color: white;
         display: flex;
         flex-direction: column;
-justify-content: space-between;
+        justify-content: space-between;
         &-up {
             clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 100%);
             background: yellow;

@@ -1,0 +1,11 @@
+.header {
+    height: 10vh;
+    background: linear-gradient(45deg, gainsboro, black);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.footer {
+    height: 10vh;
+    background: linear-gradient(45deg,black, gainsboro);
+}
