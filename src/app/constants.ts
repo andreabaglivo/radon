@@ -1,7 +1,7 @@
 import { CardEnum } from "./enum/card.enum";
 import { ICard } from "./interfaces/card.interface";
 
-export const HOME_TITLE: string = 'AE';
+export const HOME_TITLE: string = 'Radon Friuli Venezia Giulia';
 
 export const EMPTY_CARD: ICard = {
     title: '',
