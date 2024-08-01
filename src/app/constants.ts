@@ -11,6 +11,7 @@ export const EMPTY_CARD: ICard = {
     text: '',
     type: CardEnum.ROUND,
     route: '',
+    index: '0',
 }
 
 export const CARD_INFO_1: ICard = {
@@ -19,6 +20,7 @@ export const CARD_INFO_1: ICard = {
     type: CardEnum.SQUARE,
     style: CardEnum.DARK,
     route: '',
+    index: '1',
 }
 export const CARD_INFO_2: ICard = {
     title: 'COS\'È IL RADON?',
@@ -26,6 +28,7 @@ export const CARD_INFO_2: ICard = {
     type: CardEnum.SQUARE,
     style: CardEnum.LIGHT,
     route: '',
+    index: '2',
 }
 export const CARD_INFO_3: ICard = {
     title: 'COS\'È IL RADON?',
@@ -33,6 +36,7 @@ export const CARD_INFO_3: ICard = {
     type: CardEnum.SQUARE,
     style: CardEnum.LIGHT,
     route: '',
+    index: '3',
 }
 export const CARD_INFO_4: ICard = {
     title: 'COS\'È IL RADON?',
@@ -40,4 +44,5 @@ export const CARD_INFO_4: ICard = {
     type: CardEnum.SQUARE,
     style: CardEnum.DARK,
     route: '',
+    index: '4',
 }

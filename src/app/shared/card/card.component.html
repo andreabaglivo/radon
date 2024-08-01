@@ -1,16 +1,15 @@
-<div class="card" id="flip-card">
-  <div class="card-inner">
-      <div [ngClass]="cardConfig.type && cardConfig?.style" class="card-front" [routerLink]="cardConfig.route || ''">
-          <span>
-              {{ cardConfig.title }}
-          </span>
-      </div>
-      
-      <div [ngClass]="cardConfig.type && cardConfig?.style" class="card-back" [routerLink]="cardConfig.route || ''">
-          <span>
-              {{ cardConfig.text }}
-          </span>
-      </div>
-  </div>
+<div class="flip-card">
+    <input type="checkbox" id={{cardConfig.index}} class="flip-card-checkbox">
+    <label for={{cardConfig.index}} class="flip-card-inner">
+        <div [ngClass]="cardConfig.type && cardConfig?.style" class="flip-card-front" [routerLink]="cardConfig.route || ''">
+            <span>
+                {{ cardConfig.title }}
+            </span>
+        </div>
+        <div [ngClass]="cardConfig.type && cardConfig?.style" class="flip-card-back" [routerLink]="cardConfig.route || ''">
+            <span>
+                {{ cardConfig.text }}
+            </span>
+        </div>
+    </label>
 </div>
-

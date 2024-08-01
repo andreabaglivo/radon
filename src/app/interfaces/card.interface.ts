@@ -6,4 +6,5 @@ export interface ICard {
     type: CardEnum;
     style?: CardEnum,
     route?: string;
+    index: string;
 }
