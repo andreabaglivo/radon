@@ -1,14 +1,5 @@
 @import "../../../variables";
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-  margin: 0;
-}
-
 .flip-card {
   perspective: 1000px;
 }
@@ -20,14 +11,15 @@ body {
 .flip-card-inner {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 550px;
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -35,74 +27,43 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 5px black;
 }
 
 .flip-card-front {
-     background-color: white;
-     color: black;
+  background-color: white;
+  color: black;
+
+  span {
+    font-size: 32px;
+  }
 }
 
 .flip-card-back {
-   background-color: white;
-     color: gray;
-     transform: rotateY(180deg);
+  background-color: white;
+  color: rgb(73, 71, 71);
+  transform: rotateY(180deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 2rem 3rem 3rem 3rem;
+  justify-content: flex-start;
+
+  &__title {
+    color: brown
+  }
+
+  &__text {
+
+    padding: 1rem 0 0 0;
+    font-size: 20px;
+    text-align: justify;
+
+
+  }
 }
 
-.flip-card-checkbox:checked + .flip-card-inner {
+.flip-card-checkbox:checked+.flip-card-inner {
   transform: rotateY(180deg);
 }
-
-
-// input {
-//   display: none;
-// }
-
-// .card {
-//     background-color: transparent;
-//    // width: 500px;
-//     height: 300px;
-//     border: 0px solid #f1f1f1;
-//     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-// }
-
-// .card-inner {
-//     position: relative;
-//     width: 100%;
-//     height: 100%;
-//     text-align: center;
-//     transition: transform 1.5s;
-//     transform-style: preserve-3d;
-// }
-
-// .card:checked .card-inner {
-//     transform: rotateY(180deg);
-//   }
-
-//   .card-front, .card-back {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     -webkit-backface-visibility: hidden; /* Safari */
-//     backface-visibility: hidden;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-
-//   .card-front {
-//     background-color: white;
-//     color: black;
-   
-
-//   }
-
-//   .card-back {
-//     background-color: white;
-//     color: gray;
-//     transform: rotateY(180deg);
-//   }
-
-//   .flipped .card-inner {
-//     transform: rotateY(180deg);
-// }

@@ -7,9 +7,17 @@
             </span>
         </div>
         <div [ngClass]="cardConfig.type && cardConfig?.style" class="flip-card-back" [routerLink]="cardConfig.route || ''">
-            <span>
+
+                <span class="flip-card-back__title">
+                        {{ cardConfig.title }}
+                </span> 
+           
+                 
+            <span class="flip-card-back__text">
                 {{ cardConfig.text }}
             </span>
+         
+         
         </div>
     </label>
 </div>
