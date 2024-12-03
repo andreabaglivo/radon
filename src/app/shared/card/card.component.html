@@ -15,9 +15,21 @@
                  
             <span class="flip-card-back__text">
                 {{ cardConfig.text }}
+            </span> 
+            
+
+            <span *ngIf="cardConfig.title === 'CONTATTI'" class="flip-card-back__text">
+                Ingegnere nucleare e perito qualificato per risanamento radon
             </span>
-         
-         
+
+            <span *ngIf="cardConfig.title === 'CONTATTI'" class="flip-card-back__text">
+                <b>Email: </b>andreabaglivo&#64;gmail.com
+               
+            </span>
+            <span *ngIf="cardConfig.title === 'CONTATTI'" class="flip-card-back__text">
+                <b>Telefono: </b> +39 334 778 9570
+            </span>
+        
         </div>
     </label>
 </div>

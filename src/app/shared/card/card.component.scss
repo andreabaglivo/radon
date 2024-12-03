@@ -11,7 +11,7 @@
 .flip-card-inner {
   position: relative;
   width: 100%;
-  height: 550px;
+  height: 60vh;
   text-align: center;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -50,6 +50,7 @@
   padding: 2rem 3rem 3rem 3rem;
   justify-content: flex-start;
 
+
   &__title {
     color: brown
   }
@@ -60,6 +61,7 @@
     font-size: 20px;
     text-align: justify;
 
+    overflow-y: scroll;
 
   }
 }
