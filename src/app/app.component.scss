@@ -1,15 +1,25 @@
 .header {
-    height: 10vh;
+    min-height: 10vh;
+    max-height: fit-content;
     background: linear-gradient(45deg, gainsboro, black);
     position: sticky;
     top: 0;
     z-index: 10;
+
     &__title {
         padding: 1rem 1rem 1rem 2rem;
         font-size: 2rem;
     }
 }
+
 .footer {
     height: 10vh;
-    background: linear-gradient(45deg,black, gainsboro);
+    background: linear-gradient(45deg, black, gainsboro);
+}
+
+@media (max-width: 700px) {
+    .header__title {
+        text-align: center;
+    }
+
 }
